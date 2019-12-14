@@ -10,8 +10,10 @@ def begin_entry():
         table_name = input("Table Name\n")
         print("="*50)
         year_range = input("Year Range\n")
+        if year_range == "y":
+            year_range = """2010	2011	2012	2013	2014	2015	2016"""
         print("="*50)
-        print("Table Data\n")
+        print("Table Data")
         lines = []
         while True:
             line = input()
@@ -70,6 +72,8 @@ def format_data_insert(data, table):
     for line in each_line:
         line = line.split("\t")
         title = line[0]
+        if title == "":
+            continue
         values = "', '".join(line[1:])
         query = f"INSERT INTO '{table}' VALUES ('{title}', '{values}');"
         queries.append(query)
