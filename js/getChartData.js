@@ -1,14 +1,15 @@
-var tableName = "Carbon dioxide (CO2) emissions by industry group, 1990 to 2017 (mtCO2/a)"
+var data = JSON.parse(data);
 
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('fulldata.db');
-db.serialize(function() {
-  db.each(`SELECT * FROM ${tableName}`, function(err, row) {
-      console.log(row.id + ": " + row.info);
-  });
-});
+var datasets = [];
+let tables = Object.keys(data);
+table =
 
-db.close();
+for (i = 0; i < tables.length; i++) {
+    let table = data[tables[i]]
+    datasets.append({
+        label: table.
+    })
+}
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
@@ -19,20 +20,10 @@ var myChart = new Chart(ctx, {
             label: '# of Votes',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 99, 132, 0.2)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255, 99, 132, 0.8)'
             ],
             borderWidth: 1
         }]
