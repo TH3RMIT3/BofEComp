@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+}
+
+#myChart {
+  position: relative;
+  height: 100% !important;
+}
+
+.split {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-x: hidden;
+}
+
+.left {
+  left: 0;
+  width: 20%;
+}
+
+.right {
+  right: 0;
+  width: 80%;
+  height: 100%;
+  background-color: white;
+}
+
+#container {
+  width: 100%;
+}
+
+#legend {
+  list-style-type: none;
+}
+
+ul {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 12;
+  list-style-type: none;
+}
+
+li {
+  padding-bottom: 5px;
+}

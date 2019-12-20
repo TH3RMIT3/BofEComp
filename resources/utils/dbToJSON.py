@@ -46,7 +46,7 @@ for table in tables_array:
         g = random.randint(0,255)
         b = random.randint(0,255)
         area_rgb_code = f"rgba({r},{g},{b}, 0.2)"
-        line_rgb_code = f"rgba({r},{g},{b}, 0.8)"
+        line_rgb_code = f"rgba({r},{g},{b}, 1)"
         data_list = []
         for datum in list(row[1:]):
             datum = str(datum).strip()

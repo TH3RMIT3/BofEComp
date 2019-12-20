@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>Chart Data</title>
+  <script src="node_modules/chart.js/dist/Chart.js"></script>
+  <script src="node_modules/sqlite3/sqlite3.js"></script>
+  <script type="text/javascript" src="../resources/full_data.js"></script>
+  <link rel="stylesheet" type="text/css" href="style/chart_page_style.css">
+</head>
+<body>
+  <div id="container">
+    <div class="split left" id="leftCol">
+      <ul id="legend">
+      </ul>
+    </div>
+    <div class="split right">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+  <script src="js/getChartData.js" charset="utf-8"></script>
+</body>
+</html>

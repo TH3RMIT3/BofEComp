@@ -1,24 +1,20 @@
 <html>
 <head>
-  <title>Environmental Data</title>
-  <script src="node_modules/chart.js/dist/Chart.js"></script>
-  <script src="node_modules/sqlite3/sqlite3.js"></script>
-  <script type="text/javascript" src="full_data.js"></script>
-  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <title>BofE Competition</title>
+  <link rel="stylesheet" type="text/css" href="style/index_page_style.css">
+  <script type="text/javascript" src="resources/full_data.js"></script>
 </head>
 <body>
-  <div id="container">
-    <div class="split left" id="leftCol">
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
-    </div>
-    <div class="split right">
-      <canvas id="myChart"></canvas>
+  <div class="split left">
+    <ul id="tables">
+      <li id="li0" onclick="displayTableInfo(this)">Welcome - README</li>
+    </ul>
+  </div>
+  <div class="split right">
+    <div id="data-pane">
+      <a id="title"></a>
     </div>
   </div>
-  <script src="js/getChartData.js" charset="utf-8"></script>
+  <script src="js/insertTables.js" charset="utf-8"></script>
 </body>
 </html>
