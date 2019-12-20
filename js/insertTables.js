@@ -2,15 +2,25 @@ var data = JSON.parse(data);
 let table_keys = Object.keys(data);
 var lis = []
 lis.push(document.getElementById("li0"))
+lis.push(document.getElementById("li1"))
 for (i = 0; i < table_keys.length; i++) {
   var ul = document.getElementById("tables");
   var li = document.createElement("li");
   li.appendChild(document.createTextNode(table_keys[i]));
-  li.setAttribute("id", `li${i+1}`);
+  li.setAttribute("id", `li${i+2}`);
   li.setAttribute("onclick", "displayTableInfo(this)")
   ul.appendChild(li);
   lis.push(li)
 }
+var ul = document.getElementById("tables");
+var li = document.createElement("li");
+li.appendChild(document.createTextNode("Summary"));
+li.setAttribute("id", `li${lis.length}`);
+li.setAttribute("class", "maintab")
+li.setAttribute("value", "2")
+li.setAttribute("onclick", "displayTableInfo(this)")
+ul.appendChild(li);
+lis.push(li)
 
 function simple_chart_data(index) {
   let tables = Object.keys(data);
@@ -77,7 +87,7 @@ function simple_chart_data(index) {
 function displayTableInfo(element) {
   let index = element.id.substring(2)
   for (i = 0; i < lis.length; i++) {
-    if (lis[i].id === "li0") {
+    if (lis[i].value) {
       lis[i].style.color = 'blue';
       lis[i].style.backgroundColor = 'white';
     } else {
@@ -87,10 +97,21 @@ function displayTableInfo(element) {
   }
   element.style.color = 'white';
   element.style.backgroundColor = 'dodgerblue';
-  if (element.id === "li0") {
-    document.getElementById("small-graph").innerHTML = ""
-    document.getElementById("title").innerHTML = "Welcome"
+  console.log(element.value);
+  if (element.value === 1) {
+    document.getElementById("small-graph").innerHTML = "";
+    document.getElementById("title").innerHTML = "Welcome";
     document.getElementById("data-body").innerHTML = `
+    <br>
+    Welcome to our visualisation and discussion of the ways in which the Environment and energy use impacts the economy.
+    <br><br><br><a class="subtitle">Contents</a><br>
+    <ul>
+    <li class="guide-li">Welcome page</li>
+    <li class="guide-li">Introduction</li>
+    <li class="guide-li">Visualised and annotated data</li>
+    <li class="guide-li">Summary</li>
+    </ul>
+    <br><a class="subtitle">Guide</a><br>
     <ul>
     <li class="guide-li">Click an item on the left to begin.</li>
     <li class="guide-li">In each section, there are bullet-points discussing
@@ -109,10 +130,31 @@ function displayTableInfo(element) {
     <li class="guide-li"><b>FTE</b> - Full Time Equivalent</li>
     </ul>
     </ul>
-    <a id="authors">Authors</a><br><br>
-    Owain Williams (programmer) & Rebekah Edwin (writer)<br><br>
+    <br><a class="subtitle">Authors</a><br><br>
+    Owain Williams (programmer, 16) & Rebekah Edwin (writer, 16)<br><br>
     <a class="contact">owain.williams@westminster.org.uk</a><br>
     <a class="contact">rebekah.edwin@westminster.org.uk</a>
+    `;
+  } else if (element.value === 2) {
+    document.getElementById("small-graph").innerHTML = "";
+    document.getElementById("title").innerHTML = "Summary";
+    document.getElementById("data-body").innerHTML = ``;
+  } else if (element.value === 3) {
+    document.getElementById("small-graph").innerHTML = "";
+    document.getElementById("title").innerHTML = "Introduction";
+    document.getElementById("data-body").innerHTML = `
+    <br>In the following graphs I have chosen to display the data with a logarithmic
+    y-axis so that I could fit in all the dataset onto a rather small graph
+    compared to the sheer number of datapoints. <b>When a 'general negative/positive
+    time correlation is mentioned' this often means that there is a very steep gradient
+    which does not show as well on a logarithmic scale.</b>
+    <br><br><br><a class="subtitle">Programming</a>
+    <br><br>All datasets were taken
+    from the attached excel spreadsheets and (after being converted to a .db file, then to a .json file using python)
+    were displayed using <a href="https://www.chartjs.org">chart.js</a>.<br> If the code is checked, there are no comments
+    at the time of publishing due to a short production time and as I was working alone;
+    however, I would be happy to type up my method.<br>
+    The puclic github.com repo is attached <a href="https://github.com/TH3RMIT3/BofEComp">here</a>.
     `;
   } else {
     let tinx = index-1;

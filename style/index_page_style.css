@@ -41,13 +41,16 @@ li {
             user-select: none;
 }
 
-#li0 {
-  border-top: none;
+.maintab {
   padding-top: 6px;
   padding-bottom: 6px;
   font-size: 22;
   background-color:dodgerblue;
   color:white;
+}
+
+.ontop {
+  border-top: none;
 }
 
 #data-pane {
@@ -57,13 +60,14 @@ li {
 #title {
   font-size: 24px;
   text-decoration: underline;
+  color: blue;
 }
 
 .guide-li {
   border-top: none;
 }
 
-#authors {
+.subtitle {
   font-size: 20px;
   text-decoration: underline;
 }
