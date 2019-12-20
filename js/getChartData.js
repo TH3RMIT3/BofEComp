@@ -1,7 +1,6 @@
 var data = JSON.parse(data);
 var queryString = decodeURIComponent(window.location.search);
 queryString = queryString.substring(4);
-console.log(queryString)
 let tables = Object.keys(data);
 let table = tables[queryString-1]
 
@@ -38,8 +37,9 @@ var chartData = {
             bottom: 0,
           }
         },
+        //
         legend: {
-          display: false
+          display: false,
         },
         title: {
           display: true,
@@ -49,9 +49,8 @@ var chartData = {
           var text = [];
           text.push('<ul>');
           for (var i=0; i<chart.data.datasets.length; i++) {
-            console.log(chart.data.datasets[i]);
             text.push('<li>');
-            text.push('<span style="color:' + chart.data.datasets[i].borderColor + '">' + chart.data.datasets[i].label + '</span>');
+            text.push('<span style="color:' + chart.data.datasets[i].borderColor + '" onclick="updateDataset(event, ' + '\'' + chart.legend.legendItems[i].datasetIndex + '\'' + ')">' + chart.data.datasets[i].label + '</span>');
             text.push('</li>');
           }
           text.push('</ul>');
@@ -73,6 +72,52 @@ var chartData = {
         }
     }
 }
+
+var selected = []
+updateDataset = function(e, datasetIndex) {
+    var index = datasetIndex;
+    var ci = e.view.chart;
+    var meta = ci.getDatasetMeta(index);
+
+    if (selected.includes(index)) {
+      selected.splice(selected.indexOf(index), 1);
+      if (selected.length === 0) {
+        ci.data.datasets.forEach(function(e, i) {
+          ci.getDatasetMeta(i).hidden = null;
+        });
+      } else {
+        ci.data.datasets.forEach(function(e, i) {
+          if (selected.includes(i)) {
+            ci.getDatasetMeta(i).hidden = null;
+          } else {
+            ci.getDatasetMeta(i).hidden = true;
+          }
+        });
+      }
+    }
+
+
+     else {
+      selected.push(index)
+      ci.data.datasets.forEach(function(e, i) {
+        if (!selected.includes(i)) {
+          ci.getDatasetMeta(i).hidden = true;
+        } else {
+          ci.getDatasetMeta(i).hidden = null;
+        }
+      });
+    }
+
+    console.log(selected)
+    // console.log(selected)
+    //
+    // // See controller.isDatasetVisible comment
+    // meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
+    // console.log(meta.hidden)
+    //
+    // // We hid a dataset ... rerender the chart
+    ci.update();
+};
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, chartData);

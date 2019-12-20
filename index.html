@@ -2,6 +2,8 @@
 <head>
   <title>BofE Competition</title>
   <link rel="stylesheet" type="text/css" href="style/index_page_style.css">
+  <script src="node_modules/chart.js/dist/Chart.js"></script>
+  <script src="node_modules/sqlite3/sqlite3.js"></script>
   <script type="text/javascript" src="resources/full_data.js"></script>
 </head>
 <body>
@@ -15,7 +17,10 @@
       <a id="title"></a><br>
       <a id="data-body"></a>
     </div>
+    <div id="small-graph">
+    </div>
   </div>
   <script src="js/insertTables.js" charset="utf-8"></script>
+  <script src="js/getSimpleChartData.js" charset="utf-8"></script>
 </body>
 </html>
