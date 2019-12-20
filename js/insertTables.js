@@ -138,7 +138,37 @@ function displayTableInfo(element) {
   } else if (element.value === 2) {
     document.getElementById("small-graph").innerHTML = "";
     document.getElementById("title").innerHTML = "Summary";
-    document.getElementById("data-body").innerHTML = ``;
+    document.getElementById("data-body").innerHTML = `
+    <br>By looking at the graph for total gas emissions by industry section, we can see
+    that for 2017 consumer expenditure was the largest contributor towards the total
+    greenhouse gas emissions. Consumer expenditure, if controlled, can be very positive
+    for an economy, if not it could lead to hyperinflation. Consumer expenditure is the amount
+    of money spent on goods and different services by an individual or a household, therefore
+    it will be linked with manufacturing. This effect is visualised in all the graphs for energy
+    consumption, in which the graphs for consumer expenditure and manufacturing are very similar.
+    If anyone was to increase or decrease the other would also suffer. By looking at the graphs
+    for SF6 emissions by industry section, we can see that manufacturing emits a large amount
+    of SF6. We can also look at the graphs for PFC emissions, in which we can see it is one of
+    the main contributors. An alternative energy source will have to be just as efficient, as a
+    drop-in manufacturing could affect the consumer expenditure and hence the economy of the country.
+    By looking at the graph for <a style="color:blue;">“Energy Consumption in Millions of tonnes of
+    oil equivalent: By source and industry section, 1990 to 2017 (Reallocated use of energy)”</a>
+    we can see that energy from renewable and waste sources still has quite a way to go before
+    it can match up with energy use of fossil fuels. Although effective fossil fuels are both
+    harming the environment and running out and we need a long-term solution to replace them.
+    Burning fossil fuels can contribute to the greenhouse effect as they can release CO2 and SO2.
+    The greenhouse effect causes climate change, which can affect the weather in different ways.
+    It can cause anything from tsunamis to draughts. In 2018 there was a heat wave across the UK.
+    Although it increased the income from domestic holidays, wheat crops were down by 6%. If this
+    had increased it could have had a harmful effect on economy, as wheat is an export of the UK.
+    This effect can be explored for many of the other industries, but we chose consumer expenditure.
+    Two examples of where we can read the economic status from greenhouse gas emissions are in the chart <a style="color:blue;">
+    "Energy Consumption in Millions of tonnes of oil equivalent:
+    By source and industry section, 1990 to 2017 (Total energy consumption of primary fuels
+    and equivalents)"</a> we can see that the energy used for Net-Imports drop to zero at 2003 and 2009-10
+    these two events were likely caused by the <a style="color:blue;">Stock market downturn of 2002</a> and
+    <a style="color:blue;">the European sovereign debt crisis</a>
+    `;
   } else if (element.value === 3) {
     document.getElementById("small-graph").innerHTML = "";
     document.getElementById("title").innerHTML = "Introduction";
@@ -152,7 +182,7 @@ function displayTableInfo(element) {
     <br><br>All datasets were taken
     from the attached excel spreadsheets and (after being converted to a .db file, then to a .json file using python)
     were displayed using <a href="https://www.chartjs.org">chart.js</a>.<br> If the code is checked, there are no comments
-    at the time of publishing due to a short production time and as I was working alone;
+    at the time of publishing due to a short production time of around 3 days;
     however, I would be happy to type up my method.<br>
     The puclic github.com repo is attached <a href="https://github.com/TH3RMIT3/BofEComp">here</a>.
     `;
@@ -168,7 +198,7 @@ function displayTableInfo(element) {
     let tbn = table_keys[tinx];
     document.getElementById("title").innerHTML = tbn;
     document.getElementById("data-body").innerHTML = `
-    <br><a id="full-graph" href="directories/view_chart_data.html?id=${index}">FULL GRAPH</a><br>
+    <br><a id="full-graph" href="directories/view_chart_data.html?id=${index-1}">FULL GRAPH</a><br>
     <ul>
     <li class="guide-li">
     ${note_contents}
