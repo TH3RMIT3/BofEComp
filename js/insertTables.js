@@ -92,19 +92,21 @@ function displayTableInfo(element) {
     document.getElementById("title").innerHTML = "Welcome"
     document.getElementById("data-body").innerHTML = `
     <ul>
-    <li id="guide-li">Click an item on the left to begin.</li>
-    <li id="guide-li">In each section, there are bullet-points discussing
+    <li class="guide-li">Click an item on the left to begin.</li>
+    <li class="guide-li">In each section, there are bullet-points discussing
     features of each graph concerning the economy.</li>
-    <li id="guide-li">To see the graph in full with a Legend, click "FULL GRAPH" below the title.</li>
-    <li id="guide-li">Units:</li>
+    <li class="guide-li">To see the graph in full with a Legend, click <i>'full graph'</i> below the title.</li>
+    <li class="guide-li"><b>When in <i>'full graph'</i> mode you can isolate certain series by clicking on its legend.</b>
+    This would be useful to visualise the points relating to the graphs as some graphs can be visually cluttered.</li>
+    <li class="guide-li">Units:</li>
     <ul>
-    <li id="guide-li"><b>Mt</b> - Million Tonnes</li>
-    <li id="guide-li"><b>mt</b> - Thousand Tonnes</li>
-    <li id="guide-li"><b>CO2e</b> - Carbon Dioxide Equivalent</li>
-    <li id="guide-li"><b>oe</b> - Carbon Dioxide Equivalent</li>
-    <li id="guide-li"><b>/a</b> - Per Year</li>
-    <li id="guide-li"><b>PJ</b> - Petajoule (10^15)</li>
-    <li id="guide-li"><b>FTE</b> - Full Time Equivalent</li>
+    <li class="guide-li"><b>Mt</b> - Million Tonnes</li>
+    <li class="guide-li"><b>mt</b> - Thousand Tonnes</li>
+    <li class="guide-li"><b>CO2e</b> - Carbon Dioxide Equivalent</li>
+    <li class="guide-li"><b>oe</b> - Carbon Dioxide Equivalent</li>
+    <li class="guide-li"><b>/a</b> - Per Year</li>
+    <li class="guide-li"><b>PJ</b> - Petajoule (10^15)</li>
+    <li class="guide-li"><b>FTE</b> - Full Time Equivalent</li>
     </ul>
     </ul>
     <a id="authors">Authors</a><br><br>
@@ -113,11 +115,24 @@ function displayTableInfo(element) {
     <a class="contact">rebekah.edwin@westminster.org.uk</a>
     `;
   } else {
-    let tinx = index-1
+    let tinx = index-1;
+    let notes = graph_notes[tinx];
+    var note_contents;
+    if (notes === undefined) {
+      note_contents = "No Notes"
+    } else {
+      note_contents = notes.join('</li><li class="guide-li">');
+    }
     let tbn = table_keys[tinx];
     document.getElementById("title").innerHTML = tbn;
-    let button_to_graph = `<br><a href="directories/view_chart_data.html?id=${index}">FULL GRAPH</a>`;
-    document.getElementById("data-body").innerHTML = button_to_graph;
+    document.getElementById("data-body").innerHTML = `
+    <br><a id="full-graph" href="directories/view_chart_data.html?id=${index}">FULL GRAPH</a><br>
+    <ul>
+    <li class="guide-li">
+    ${note_contents}
+    </li>
+    </ul>
+    `;
     document.getElementById("small-graph").innerHTML = `<canvas id="myChart"></canvas>`
     simple_chart_data(tinx);
   }

@@ -53,13 +53,21 @@ li {
   text-decoration: underline;
 }
 
-#guide-li {
+.guide-li {
   border-top: none;
 }
 
 #authors {
   font-size: 20px;
   text-decoration: underline;
+}
+
+#full-graph {
+  color: white;
+  background-color: green;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
 .contact {
@@ -69,7 +77,7 @@ li {
 }
 
 #small-graph {
-  padding: 60px 60px 60px 30px;
+  padding: 20px 60px 60px 30px;
   height: 50%;
   bottom: 0px;
 }

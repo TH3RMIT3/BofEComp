@@ -15,7 +15,7 @@ for (i = 0; i < large_datasets.length; i++) {
         backgroundColor: set[2],
         borderColor: set[3],
         borderWidth: 1,
-        fill: false
+        fill: false,
     }
     datasets.push(dataset)
 }
@@ -68,6 +68,7 @@ var chartData = {
               },
               id: 'y-axis',
               type: 'logarithmic',
+
             }],
         }
     }
@@ -77,45 +78,45 @@ var selected = []
 updateDataset = function(e, datasetIndex) {
     var index = datasetIndex;
     var ci = e.view.chart;
-    var meta = ci.getDatasetMeta(index);
 
-    if (selected.includes(index)) {
+    var lis = document.getElementById("legend").getElementsByTagName("li");
+
+    if (selected.includes(index.toString())) {
       selected.splice(selected.indexOf(index), 1);
       if (selected.length === 0) {
         ci.data.datasets.forEach(function(e, i) {
           ci.getDatasetMeta(i).hidden = null;
+          lis[i].style["text-decoration"] = "none";
+          lis[i].style["opacity"] = 1;
         });
       } else {
         ci.data.datasets.forEach(function(e, i) {
-          if (selected.includes(i)) {
+          if (selected.includes(i.toString())) {
             ci.getDatasetMeta(i).hidden = null;
+            lis[i].style["text-decoration"] = "none";
+            lis[i].style["opacity"] = 1;
           } else {
             ci.getDatasetMeta(i).hidden = true;
+            lis[i].style["text-decoration"] = "line-through";
+            lis[i].style["opacity"] = 0.4;
           }
         });
       }
-    }
-
-
-     else {
-      selected.push(index)
+    } else {
+      selected.push(index);
       ci.data.datasets.forEach(function(e, i) {
-        if (!selected.includes(i)) {
-          ci.getDatasetMeta(i).hidden = true;
-        } else {
+        if (selected.includes(i.toString())) {
           ci.getDatasetMeta(i).hidden = null;
+          lis[i].style["text-decoration"] = "none";
+          lis[i].style["opacity"] = 1;
+        } else {
+          ci.getDatasetMeta(i).hidden = true;
+          lis[i].style["text-decoration"] = "line-through";
+          lis[i].style["opacity"] = 0.4;
         }
       });
     }
 
-    console.log(selected)
-    // console.log(selected)
-    //
-    // // See controller.isDatasetVisible comment
-    // meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
-    // console.log(meta.hidden)
-    //
-    // // We hid a dataset ... rerender the chart
     ci.update();
 };
 
