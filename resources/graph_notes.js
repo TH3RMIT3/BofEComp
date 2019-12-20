@@ -70,6 +70,30 @@ var graph_notes = [
     "The only manufacturing NF3 emissions are from computer components."
   ],
   [
-    
-  ]
+    "Scientific and technical activities drop SF6 emissions from 220-0.3 mtSF6-CO2e/a",
+    "Other than water supply and manufacturing, which begin to decline quickly in the early 2000s, there is a general negative time correlation"
+  ],
+  [
+    "The trough and peak in 2005-2015 in the previous graph is caused by a trough in 'scientific R&D' in 2005-2010 and a peak in 'engineering R&D in 2010-2015'"
+  ],
+  [],[],[],[],[],[],[],[],[],[],[],[],
+  [
+    "General steady negative time correlation.",
+    "Net-imports plummets to zero in 2003 and 2010"
+  ],
+  [
+    "Graph remains steady throughout time period."
+  ],
+  [
+    "Graph remains steady throughout time period."
+  ],
+  [
+    "Graph remains steady throughout time period."
+  ],
+  [
+    "Graph remains steady throughout time period."
+  ],
+  [
+    "Graph remains steady throughout time period."
+  ],
 ]
