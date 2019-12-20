@@ -1,7 +1,9 @@
 var data = JSON.parse(data);
-
+var queryString = decodeURIComponent(window.location.search);
+queryString = queryString.substring(4);
+console.log(queryString)
 let tables = Object.keys(data);
-let table = tables[10]
+let table = tables[queryString-1]
 
 let large_datasets = data[table].datasets
 var datasets = []

@@ -27,8 +27,12 @@ function displayTableInfo(element) {
   element.style.backgroundColor = 'dodgerblue';
   if (element.id === "li0") {
     document.getElementById("title").innerHTML = "Welcome"
+    document.getElementById("data-body").innerHTML = "Click an item on the left to begin"
   } else {
-    document.getElementById("title").innerHTML = tables[index-1]
+    let tbn = tables[index-1]
+    document.getElementById("title").innerHTML = tbn
+    let button_to_graph = `<a href="directories/view_chart_data.html?id=${index}">To Graph</a>`
+    document.getElementById("data-body").innerHTML = button_to_graph
   }
 }
 
