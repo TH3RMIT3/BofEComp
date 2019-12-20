@@ -157,7 +157,7 @@ function displayTableInfo(element) {
     The puclic github.com repo is attached <a href="https://github.com/TH3RMIT3/BofEComp">here</a>.
     `;
   } else {
-    let tinx = index-1;
+    let tinx = index-2;
     let notes = graph_notes[tinx];
     var note_contents;
     if (notes === undefined) {
